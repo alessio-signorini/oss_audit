@@ -23,7 +23,7 @@ module OssAudit
 
       logger.debug{"* Found #{dependencies.count} dependencies"}
 
-      dependencies.sort.first(3).each do |dependency|
+      dependencies.each do |dependency|
         name, version = Array(dependency)
 
         info      = manager.get_info(name, version) or next
