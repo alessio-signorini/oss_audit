@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require "oss_audit"
+
+banner = "#{OssAudit::NAME} v#{OssAudit::VERSION} - alessio@signorini.us
+  Usage: #{$0} [options] <dir1> ... <dirN>
+"
+
+@options = {}
+opts = OptionParser.new do |opts|
+  opts.banner = banner
+  
+  @options[:format] = :json
+  opts.on("-f", "--format FORMAT", [:csv, :json], "Output format (csv,json)") do |v|
+    @options[:format] = v
+  end
+  
+  @options[:simple] = true
+  opts.on("-x", "--extended", "Add extra details (e.g., dependencies)") do |v|
+    @options[:simple] = false
+  end
+  
+  opts.on("-o", "--overrides FILE.json", "Override data if in file") do |v|
+    @options[:overrides] = v
+  end
+end
+
+opts.parse!
+
+unless ARGV.count > 0
+    puts opts.help()
+    exit 1
+end
+
+dependencies = []
+ARGV.each do |path|
+  abort("ERROR: '#{path}' does not exists") unless Dir.exists?(path)
+  dependencies += OssAudit.scan(path)
+end
+
+if @options[:overrides]
+  OssAudit::Overrides.patch!(dependencies, @options[:overrides])
+end
+
+puts OssAudit::Output.format(dependencies, @options[:format], @options[:simple])
