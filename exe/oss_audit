@@ -3,7 +3,7 @@
 require 'optparse'
 require "oss_audit"
 
-banner = "#{OssAudit::NAME} v#{OssAudit::VERSION} - alessio@signorini.us
+banner = "#{OssAudit::NAME} v#{OssAudit::VERSION} - alessio" + "@signorini.us
   Usage: #{File.basename($0)} [options] <dir1> ... <dirN>
 "
 

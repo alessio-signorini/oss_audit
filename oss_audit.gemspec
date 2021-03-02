@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name          = "oss_audit"
   spec.version       = OssAudit::VERSION
   spec.authors       = ["Alessio Signorini"]
-  spec.email         = ["alessio@signorini.us"]
+  spec.email         = ["alessio" + "@signorini.us"]
 
   spec.summary       = OssAudit::NAME
   spec.description   = "Generate list of libraries used with licenses and links"
