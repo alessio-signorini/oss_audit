@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    oss_audit (0.1.0)
+    oss_audit (1.0.2)
 
 GEM
   remote: https://rubygems.org/
