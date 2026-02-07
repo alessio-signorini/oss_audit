@@ -1,4 +1,4 @@
-# Open Source Software Auditor
+# 🧑‍⚖️ OSS Audit
 Simple, opinionated tool to compile a list of the open source software in use
 in a project. Each library is listed together with its licenses and links,
 ready to be audited.
