@@ -1,7 +1,7 @@
 # 🧑‍⚖️ OSS Audit
 Simple, opinionated tool to compile a list of the open source software in use in a project. Each library is listed together with its licenses and links, ready to be audited.
 
-**Useful features:**
+### Useful features 
 * No dependencies, can be ran anywhere
 * Does not require any package manager nor for the code to work or be installed
 * Output can be in JSON or CSV format
